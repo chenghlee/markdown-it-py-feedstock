@@ -14,7 +14,7 @@ build:
   entry_points:
     - markdown-it = markdown_it.cli.parse:main
   noarch: python
-  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -28,7 +28,6 @@ requirements:
 test:
   requires:
     - pip
-    - python {{ python_min }}
   imports:
     - markdown_it
     - markdown_it.cli
@@ -45,7 +44,6 @@ test:
 about:
   home: https://github.com/ExecutableBookProject/markdown-it-py
   license: MIT
-  license_family: MIT
   license_file: LICENSE
   summary: Python port of markdown-it. Markdown parsing, done right!
   doc_url: https://github.com/ExecutableBookProject/markdown-it-py/blob/master/README.md
@@ -55,3 +53,4 @@ extra:
   recipe-maintainers:
     - dopplershift
     - choldgraf
+    - chenghlee
